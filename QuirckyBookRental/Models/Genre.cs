@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace QuirckyBookRental.Models
+namespace QuirkyBookRental.Models
 {
     public class Genre
     {

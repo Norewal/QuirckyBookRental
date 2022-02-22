@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using QuirckyBookRental.Models;
+using QuirkyBookRental.Models;
 
-namespace QuirckyBookRental
+namespace QuirkyBookRental
 {
     public partial class Startup
     {

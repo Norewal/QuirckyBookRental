@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using QuirckyBookRental.Models;
+using QuirkyBookRental.Models;
 
-namespace QuirckyBookRental.Controllers
+namespace QuirkyBookRental.Controllers
 {
     [Authorize]
     public class ManageController : Controller

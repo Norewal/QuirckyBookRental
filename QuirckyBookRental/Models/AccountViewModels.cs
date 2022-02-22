@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace QuirckyBookRental.Models
+namespace QuirkyBookRental.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
