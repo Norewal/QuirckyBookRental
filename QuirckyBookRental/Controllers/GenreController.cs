@@ -44,6 +44,22 @@ namespace QuirkyBookRental.Controllers
             return View();
         }
 
+       public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            Genre genre = db.Genres.Find(id);
+
+            if(genre == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View();
+        }    
+
 
         protected override void Dispose(bool disposing)
         {
