@@ -6,14 +6,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Genre</h2>
+<br />
+
+<h3>Genre</h3>
 
 @Html.Partial("_CreateButtonPartial")
 
-<br /><br /><br />
+<br />
+<br />
+<br />
 
 <table class="table table-condensed table-hover">
-    <tr @*style="border-bottom: 1px solid red"*@>
+    <tr style="border-bottom: 1px solid red">
         <th>
             @Html.DisplayNameFor(m => m.Name)
         </th>
