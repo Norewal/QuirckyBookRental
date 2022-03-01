@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace QuirckyBookRental.Models
+namespace QuirkyBookRental.Models
 {
     public class IndividualButtonPartial
     {

@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<QuirkyBookRental.Models.Genre>
-@using QuirckyBookRental.Models
+@using QuirkyBookRental.Models
+
 
 @{
     ViewBag.Title = "Index";
@@ -20,12 +21,13 @@
 
     @foreach (var item in Model)
         {
-    <tr>
-        <td>
-            @Html.DisplayFor(m=>item.Name)
-        </td>
-        <td>
-            @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { GenreId = item.Id})
-        </td>
-    </tr>}
+            <tr>
+                <td>
+                    @Html.DisplayFor(m=>item.Name)
+                </td>
+                <td>
+                    @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { GenreId = item.Id})
+                </td>
+            </tr>
+        }
 </table>
