@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using QuirkyBookRental.Models;
 
-namespace QuirckyBookRental.Controllers
+namespace QuirkyBookRental.Controllers
 {
     public class BookController : Controller
     {
@@ -29,10 +29,12 @@ namespace QuirckyBookRental.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Book book = db.Books.Find(id);
+
             if (book == null)
             {
                 return HttpNotFound();
             }
+
             return View(book);
         }
 
@@ -44,8 +46,6 @@ namespace QuirckyBookRental.Controllers
         }
 
         // POST: Book/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ISBN,Title,Author,Description,ImageUrl,Avaibility,Price,DateAdded,GenreId,Publisher,PublicationDate,Pages,ProductDimensions")] Book book)
@@ -78,8 +78,6 @@ namespace QuirckyBookRental.Controllers
         }
 
         // POST: Book/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,ISBN,Title,Author,Description,ImageUrl,Avaibility,Price,DateAdded,GenreId,Publisher,PublicationDate,Pages,ProductDimensions")] Book book)

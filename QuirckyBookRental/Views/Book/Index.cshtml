@@ -5,18 +5,14 @@
     ViewBag.Title = "Index";
 }
 
+<h2>Manage Books</h2>
 <br />
-
-<h3>Manage Books</h3>
-
-@Html.Partial("_CreateButtonPartial")
-
-<br />
-<br />
-<br />
-
+<p>
+    @Html.Partial("_CreateButtonPartial")
+</p>
 <table class="table table-condensed table-hover">
-    <tr style="border-bottom: 1px solid red">
+    <tr class="table-header">
+
         <th>
             @Html.DisplayNameFor(model => model.ISBN)
         </th>
@@ -51,13 +47,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <th>
+            <td>
                 @Html.DisplayFor(modelItem => item.Genre.Name)
-            </th>
+            </td>
             <td>
                 @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { BookId = item.Id })
             </td>
         </tr>
     }
-
 </table>
