@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using QuirkyBookRental.Models;
+using QuirkyBookRental.ViewModel;
 
 namespace QuirkyBookRental.Controllers
 {
@@ -29,27 +30,53 @@ namespace QuirkyBookRental.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Book book = db.Books.Find(id);
-
             if (book == null)
             {
                 return HttpNotFound();
             }
 
-            return View(book);
+            var model = new BookViewModel
+            {
+                Book = book,
+                Genre = db.Genres.ToList()
+            };
+            return View(model);
         }
 
         // GET: Book/Create
         public ActionResult Create()
         {
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name");
-            return View();
+            var genre = db.Genres.ToList();
+            var model = new BookViewModel
+            {
+                Genre = genre
+            };
+            return View(model);
         }
 
         // POST: Book/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ISBN,Title,Author,Description,ImageUrl,Avaibility,Price,DateAdded,GenreId,Publisher,PublicationDate,Pages,ProductDimensions")] Book book)
+        public ActionResult Create(BookViewModel bookVM)
         {
+            var book = new Book
+            {
+                Author = bookVM.Book.Author,
+                Avaibility = bookVM.Book.Avaibility,
+                DateAdded = bookVM.Book.DateAdded,
+                Description = bookVM.Book.Description,
+                Genre = bookVM.Book.Genre,
+                GenreId = bookVM.Book.GenreId,
+                ImageUrl = bookVM.Book.ImageUrl,
+                ISBN = bookVM.Book.ISBN,
+                Pages = bookVM.Book.Pages,
+                Price = bookVM.Book.Price,
+                ProductDimensions = bookVM.Book.ProductDimensions,
+                PublicationDate = bookVM.Book.PublicationDate,
+                Publisher = bookVM.Book.Publisher,
+                Title = bookVM.Book.Title
+            };
+
             if (ModelState.IsValid)
             {
                 db.Books.Add(book);
@@ -57,8 +84,8 @@ namespace QuirkyBookRental.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", book.GenreId);
-            return View(book);
+            bookVM.Genre = db.Genres.ToList();
+            return View(bookVM);
         }
 
         // GET: Book/Edit/5
@@ -73,23 +100,46 @@ namespace QuirkyBookRental.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", book.GenreId);
-            return View(book);
+
+            var model = new BookViewModel
+            {
+                Book = book,
+                Genre = db.Genres.ToList()
+            };
+            return View(model);
         }
 
         // POST: Book/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ISBN,Title,Author,Description,ImageUrl,Avaibility,Price,DateAdded,GenreId,Publisher,PublicationDate,Pages,ProductDimensions")] Book book)
+        public ActionResult Edit(BookViewModel bookVM)
         {
+            var book = new Book
+            {
+                Id = bookVM.Book.Id,
+                Author = bookVM.Book.Author,
+                Avaibility = bookVM.Book.Avaibility,
+                DateAdded = bookVM.Book.DateAdded,
+                Description = bookVM.Book.Description,
+                Genre = bookVM.Book.Genre,
+                GenreId = bookVM.Book.GenreId,
+                ImageUrl = bookVM.Book.ImageUrl,
+                ISBN = bookVM.Book.ISBN,
+                Pages = bookVM.Book.Pages,
+                Price = bookVM.Book.Price,
+                ProductDimensions = bookVM.Book.ProductDimensions,
+                PublicationDate = bookVM.Book.PublicationDate,
+                Publisher = bookVM.Book.Publisher,
+                Title = bookVM.Book.Title
+            };
             if (ModelState.IsValid)
             {
                 db.Entry(book).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", book.GenreId);
-            return View(book);
+            bookVM.Genre = db.Genres.ToList();
+            return View(bookVM);
         }
 
         // GET: Book/Delete/5
@@ -104,7 +154,12 @@ namespace QuirkyBookRental.Controllers
             {
                 return HttpNotFound();
             }
-            return View(book);
+            var model = new BookViewModel
+            {
+                Book = book,
+                Genre = db.Genres.ToList()
+            };
+            return View(model);
         }
 
         // POST: Book/Delete/5
