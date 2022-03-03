@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
+
 namespace QuirkyBookRental.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
@@ -22,6 +23,8 @@ namespace QuirkyBookRental.Models
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<MembershipType> MembershipTypes { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
