@@ -112,6 +112,7 @@ namespace QuirkyBookRental.Controllers
         // POST: Book/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(BookViewModel bookVM)
         {
             var book = new Book
