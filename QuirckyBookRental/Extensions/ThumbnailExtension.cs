@@ -9,7 +9,7 @@ namespace QuirkyBookRental.Extensions
     public static class ThumbnailExtensions
     {
         //it will return a list of thumbnail
-        public static IEnumerable<ThumbnailModel> GetBookThumbnail(this List<ThumbnailModel> thumbnails, ApplicationDbContext db = null)
+        public static IEnumerable<ThumbnailModel> GetBookThumbnail(this List<ThumbnailModel> thumbnails, ApplicationDbContext db = null, string search = null)
         {
             try
             {
@@ -24,13 +24,19 @@ namespace QuirkyBookRental.Extensions
                                   ImageUrl = b.ImageUrl,
                                   Link = "/BookDetail/Index/" + b.Id,
                               }).ToList(); //converting the output into a list
+
+                // search functionality
+                if (search != null)
+                {
+                    return thumbnails.Where(t => t.Title.ToLower().Contains(search.ToLower())).OrderBy(t => t.Title);
+                }
             }
             catch (Exception ex)
             {
 
             }
             return thumbnails.OrderBy(b => b.Title);
-
+             
         }
     }
 }
