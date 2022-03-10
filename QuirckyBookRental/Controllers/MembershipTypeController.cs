@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using QuirkyBookRental.Models;
 
-namespace QuirckyBookRental.Controllers
+namespace QuirkyBookRental.Controllers
 {
     public class MembershipTypeController : Controller
     {
