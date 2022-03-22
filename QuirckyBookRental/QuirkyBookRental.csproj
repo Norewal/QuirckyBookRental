@@ -221,6 +221,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\SD.cs" />
     <Compile Include="ViewModel\BookViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-Quirky.mdf" />
