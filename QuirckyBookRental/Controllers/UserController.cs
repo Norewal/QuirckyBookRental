@@ -1,5 +1,5 @@
-﻿using QuirckyBookRental.ViewModel;
-using QuirkyBookRental.Models;
+﻿using QuirkyBookRental.Models;
+using QuirkyBookRental.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +7,17 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace QuirckyBookRental.Controllers
+namespace QuirkyBookRental.Controllers
 {
     public class UserController : Controller
     {
-
         private ApplicationDbContext db;
+
 
         public UserController()
         {
             db = ApplicationDbContext.Create();
         }
-
-
 
         // GET: User
         public ActionResult Index()
@@ -32,83 +30,78 @@ namespace QuirckyBookRental.Controllers
                            FirstName = u.FirstName,
                            LastName = u.LastName,
                            Email = u.Email,
+                           BirthDate = u.BirthDate,
                            Phone = u.Phone,
-                           Birthdate = u.BirthDate,
                            MembershipTypeId = u.MembershipTypeId,
                            MembershipTypes = (ICollection<MembershipType>)db.MembershipTypes.ToList().Where(n => n.Id.Equals(u.MembershipTypeId)),
-                           Disable = u.Disable
+                           Disabled = u.Disable
                        };
 
-            var userList = user.ToList();
+            var usersList = user.ToList();
 
-            return View(userList);
+            return View(usersList);
         }
 
-
-
-        //Edit Get
+        //GET Edit
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             ApplicationUser user = db.Users.Find(id);
 
             if (user == null)
             {
                 return HttpNotFound();
             }
-
-            UserViewModel model = new UserViewModel
+            UserViewModel model = new UserViewModel()
             {
-                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                Phone = user.Phone,
-                Birthdate = user.BirthDate,
+                BirthDate = user.BirthDate,
+                Id = user.Id,
                 MembershipTypeId = user.MembershipTypeId,
                 MembershipTypes = db.MembershipTypes.ToList(),
-                Disable = user.Disable
+                Phone = user.Phone,
+                Disabled = user.Disable
             };
+
             return View(model);
-        } 
+        }
 
 
-
-        //POST Method for Edi Action
+        //POST Method for EDIT Action
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(UserViewModel user) 
+        public ActionResult Edit(UserViewModel user)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                UserViewModel model = new UserViewModel
+                UserViewModel model = new UserViewModel()
                 {
-                    Id = user.Id,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Email = user.Email,
-                    Phone = user.Phone,
                     Birthdate = user.Birthdate,
+                    Id = user.Id,
                     MembershipTypeId = user.MembershipTypeId,
                     MembershipTypes = db.MembershipTypes.ToList(),
+                    Phone = user.Phone,
                     Disable = user.Disable
                 };
-
-                return View("Edit", model);
+                return View(model);
             }
             else
             {
                 var userInDb = db.Users.Single(u => u.Id == user.Id);
                 userInDb.FirstName = user.FirstName;
                 userInDb.LastName = user.LastName;
-                userInDb.Email = user.Email;
-                userInDb.Phone = user.Phone;
                 userInDb.BirthDate = user.Birthdate;
+                userInDb.Email = user.Email;
                 userInDb.MembershipTypeId = user.MembershipTypeId;
+                userInDb.Phone = user.Phone;
                 userInDb.Disable = user.Disable;
             }
 
@@ -118,82 +111,73 @@ namespace QuirckyBookRental.Controllers
         }
 
 
-
         public ActionResult Details(string id)
         {
             if (id == null || id.Length == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             ApplicationUser user = db.Users.Find(id);
-
-            UserViewModel model = new UserViewModel
+            UserViewModel model = new UserViewModel()
             {
-                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                Phone = user.Phone,
                 Birthdate = user.BirthDate,
+                Id = user.Id,
                 MembershipTypeId = user.MembershipTypeId,
                 MembershipTypes = db.MembershipTypes.ToList(),
+                Phone = user.Phone,
                 Disable = user.Disable
             };
-
             return View(model);
         }
 
-
-
-        // DELETE GET
+        //DELETE Get Method
         public ActionResult Delete(string id)
         {
             if (id == null || id.Length == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             ApplicationUser user = db.Users.Find(id);
-
-            UserViewModel model = new UserViewModel
+            UserViewModel model = new UserViewModel()
             {
-                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                Phone = user.Phone,
                 Birthdate = user.BirthDate,
+                Id = user.Id,
                 MembershipTypeId = user.MembershipTypeId,
                 MembershipTypes = db.MembershipTypes.ToList(),
+                Phone = user.Phone,
                 Disable = user.Disable
             };
-
             return View(model);
         }
 
-
-
-        // DELETE POST
+        //DELETE Post method
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult UsersDeletePost(string id)
         {
             var userInDb = db.Users.Find(id);
-            if ( id == null || id.Length == 0)
+            if (id == null || id.Length == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             userInDb.Disable = true;
             db.SaveChanges();
-
-            return RedirectToAction("Index");
+            return View();
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            if (disposing)
+            {
+                db.Dispose();
+            }
         }
     }
 }

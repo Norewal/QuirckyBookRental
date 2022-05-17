@@ -7,18 +7,18 @@ namespace QuirkyBookRental.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddFieldsToMembershipTable : IMigrationMetadata
+    public sealed partial class UpdateDBNew : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFieldsToMembershipTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDBNew));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203071639334_AddFieldsToMembershipTable"; }
+            get { return "202205172011176_UpdateDBNew"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return null; }
+            get { return Resources.GetString("Source"); }
         }
         
         string IMigrationMetadata.Target

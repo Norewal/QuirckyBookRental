@@ -13,7 +13,7 @@ namespace QuirkyBookRental.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202202211651595_AddBookAndGenreClass"; }
+            get { return "202202152046392_AddBookAndGenreClass"; }
         }
         
         string IMigrationMetadata.Source

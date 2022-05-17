@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace QuirckyBookRental.ViewModel
+namespace QuirkyBookRental.ViewModel
 {
     public class UserViewModel
     {
@@ -17,7 +17,7 @@ namespace QuirckyBookRental.ViewModel
         public string Email { get; set; }
 
         [DataType(DataType.Password)]
-        public string Password{ get; set; }
+        public string Password { get; set; }
 
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }

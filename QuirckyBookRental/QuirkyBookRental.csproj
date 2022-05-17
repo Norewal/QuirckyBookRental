@@ -192,21 +192,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202202211651595_AddBookAndGenreClass.cs" />
-    <Compile Include="Migrations\202202211651595_AddBookAndGenreClass.Designer.cs">
-      <DependentUpon>202202211651595_AddBookAndGenreClass.cs</DependentUpon>
+    <Compile Include="Migrations\202202152046392_AddBookAndGenreClass.cs" />
+    <Compile Include="Migrations\202202152046392_AddBookAndGenreClass.designer.cs">
+      <DependentUpon>202202152046392_AddBookAndGenreClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203031608511_AddMembershipTypeToDatabase.cs" />
-    <Compile Include="Migrations\202203031608511_AddMembershipTypeToDatabase.Designer.cs">
-      <DependentUpon>202203031608511_AddMembershipTypeToDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203031610261_SeedMembershipTypeDatabase.cs" />
-    <Compile Include="Migrations\202203031610261_SeedMembershipTypeDatabase.Designer.cs">
-      <DependentUpon>202203031610261_SeedMembershipTypeDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203071639334_AddFieldsToMembershipTable.cs" />
-    <Compile Include="Migrations\202203071639334_AddFieldsToMembershipTable.Designer.cs">
-      <DependentUpon>202203071639334_AddFieldsToMembershipTable.cs</DependentUpon>
+    <Compile Include="Migrations\202205172011176_UpdateDBNew.cs" />
+    <Compile Include="Migrations\202205172011176_UpdateDBNew.Designer.cs">
+      <DependentUpon>202205172011176_UpdateDBNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -324,28 +316,20 @@
     <Content Include="Views\MembershipType\Index.cshtml" />
     <Content Include="Views\Shared\_ThumbnailAreaPartial.cshtml" />
     <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\User\" />
+    <EmbeddedResource Include="Migrations\202202152046392_AddBookAndGenreClass.resx">
+      <DependentUpon>202202152046392_AddBookAndGenreClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205172011176_UpdateDBNew.resx">
+      <DependentUpon>202205172011176_UpdateDBNew.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202202211651595_AddBookAndGenreClass.resx">
-      <DependentUpon>202202211651595_AddBookAndGenreClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203031608511_AddMembershipTypeToDatabase.resx">
-      <DependentUpon>202203031608511_AddMembershipTypeToDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203031610261_SeedMembershipTypeDatabase.resx">
-      <DependentUpon>202203031610261_SeedMembershipTypeDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203071639334_AddFieldsToMembershipTable.resx">
-      <DependentUpon>202203071639334_AddFieldsToMembershipTable.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
