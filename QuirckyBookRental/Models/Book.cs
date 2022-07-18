@@ -44,6 +44,7 @@ namespace QuirkyBookRental.Models
         public int GenreId { get; set; }
 
         public Genre Genre { get; set; }
+        public int Test{ get; set; }
 
         [Required]
         public string Publisher { get; set; }

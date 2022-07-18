@@ -30,11 +30,11 @@ namespace QuirkyBookRental.Controllers
                            FirstName = u.FirstName,
                            LastName = u.LastName,
                            Email = u.Email,
-                           BirthDate = u.BirthDate,
+                           Birthdate = u.BirthDate,
                            Phone = u.Phone,
                            MembershipTypeId = u.MembershipTypeId,
                            MembershipTypes = (ICollection<MembershipType>)db.MembershipTypes.ToList().Where(n => n.Id.Equals(u.MembershipTypeId)),
-                           Disabled = u.Disable
+                           Disable = u.Disable
                        };
 
             var usersList = user.ToList();
@@ -60,12 +60,12 @@ namespace QuirkyBookRental.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                BirthDate = user.BirthDate,
+                Birthdate = user.BirthDate,
                 Id = user.Id,
                 MembershipTypeId = user.MembershipTypeId,
                 MembershipTypes = db.MembershipTypes.ToList(),
                 Phone = user.Phone,
-                Disabled = user.Disable
+                Disable = user.Disable
             };
 
             return View(model);
@@ -107,7 +107,7 @@ namespace QuirkyBookRental.Controllers
 
             db.SaveChanges();
 
-            return RedirectToAction("Index", "Users");
+            return RedirectToAction("Index", "User");
         }
 
 

@@ -1,0 +1,51 @@
+﻿@model QuirkyBookRental.ViewModel.UserViewModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    <div style="margin-top: 50px;">
+        <h3>Are you sure you want to delete this user?</h3>
+        <hr />
+        <fieldset disabled>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.FirstName, htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.LastName, htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Phone, htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Birthdate, htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Birthdate, "{0:MM dd yyy}", new { @class = "form-control" })
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+        @Html.Partial("_BackToListButtonPartial")
+        <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+        <div></div>
+}

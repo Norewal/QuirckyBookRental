@@ -303,7 +303,9 @@
     <Content Include="Views\Shared\_IndividualButtonPartial.cshtml" />
     <Content Include="Views\Shared\_EditButtonPartial.cshtml" />
     <Content Include="Views\Genre\Edit.cshtml" />
-    <Content Include="Views\Genre\Delete.cshtml" />
+    <Content Include="Views\Genre\Delete.cshtml">
+      <BrowseToURL>~/Genre/Delete</BrowseToURL>
+    </Content>
     <Content Include="Views\Book\Create.cshtml" />
     <Content Include="Views\Book\Delete.cshtml" />
     <Content Include="Views\Book\Details.cshtml" />
@@ -317,6 +319,9 @@
     <Content Include="Views\Shared\_ThumbnailAreaPartial.cshtml" />
     <Content Include="Views\Manage\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202202152046392_AddBookAndGenreClass.resx">
