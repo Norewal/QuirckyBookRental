@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -56,13 +56,13 @@ namespace QuirkyBookRental
 
             app.UseFacebookAuthentication(
                appId: "Facebook.AppId",
-               appSecret: "Facebook.AppSecret";
+               appSecret: "Facebook.AppSecret");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "Google.ClientId",
+                ClientSecret = "Google.ClientSecret"
+            });
         }
     }
 }

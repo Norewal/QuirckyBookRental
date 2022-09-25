@@ -251,6 +251,7 @@
     <Content Include="Content\Images\8426437_5.jpg" />
     <Content Include="Content\Images\8426439_4.jpg" />
     <Content Include="Content\Images\8429640_5.jpg" />
+    <Content Include="Content\social.css" />
     <Content Include="Content\thumbnail.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
