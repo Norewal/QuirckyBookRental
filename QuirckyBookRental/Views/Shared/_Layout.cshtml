@@ -30,10 +30,13 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <br />
+            <p class="text-muted">&copy; @DateTime.Now.Year - Book Rental</p>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bookRentalJs")

@@ -55,14 +55,14 @@ namespace QuirkyBookRental
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "404731871633118",
-               appSecret: "3dee4189f9023dc34d9991e319d8256d");
+               appId: "Facebook.AppId",
+               appSecret: "Facebook.AppSecret");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "Google.ClientId",
+                ClientSecret = "Google.ClientSecret"
+            });
         }
     }
 }
