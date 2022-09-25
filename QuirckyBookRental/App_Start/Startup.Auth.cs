@@ -56,7 +56,7 @@ namespace QuirkyBookRental
 
             app.UseFacebookAuthentication(
                appId: "Facebook.AppId",
-               appSecret: "Facebook.AppSecret");
+               appSecret: "Facebook.AppSecret";
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
