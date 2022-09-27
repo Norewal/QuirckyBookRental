@@ -16,21 +16,21 @@
                     @if (Model.HasPassword)
                     {
                         <a type="button" class="btn btn-sm btn-primary" href="@Url.Action("ChangePassword")">
-                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="glyphicon glyphicon-pencil" style="padding-right: 5px"></span>
                             <span>Change Password</span>
                         </a>
                     }
                     else
                     {
                         <a type="button" class="btn btn-sm btn-primary" href="@Url.Action("SetPassword")">
-                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="glyphicon glyphicon-pencil" style="padding-right: 5px"></span>
                             <span>Create Password</span>
                         </a>
                     }
                     &nbsp;&nbsp;
 
                     <a type="button" class="btn btn-sm btn-primary" href="@Url.Action("ManageLogins")">
-                        <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="glyphicon glyphicon-pencil" style="padding-right: 5px"></span>
                         <span>Manage External Logins</span>
                     </a>
                 </div>
