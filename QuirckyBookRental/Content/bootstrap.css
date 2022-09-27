@@ -3095,8 +3095,8 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
     color: #ffffff;
-    background-color: #9ED1D9;
-    border-color: #9ED1D9;
+    background-color: var(--light-blue);
+    border-color: var(--light-blue);
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -3117,8 +3117,8 @@ fieldset[disabled] .btn-default.focus {
     }
     .btn-primary.create {
         color: #ffffff;
-        background-color: #F090B3;
-        border-color: #F090B3;
+        background-color: var(--pink);
+        border-color: var(--pink);
     }
 .btn-primary:active,
 .btn-primary.active,
@@ -3159,8 +3159,8 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
     color: #ffffff;
-    background-color: #A3E5D8;
-    border-color: #A3E5D8;
+    background-color: var(--light-green);
+    border-color: var(--light-green);
 }
 .btn-success:focus,
 .btn-success.focus {
@@ -3318,8 +3318,8 @@ fieldset[disabled] .btn-warning.focus {
 }
 .btn-danger {
     color: #ffffff;
-    background-color: #ffa69e;
-    border-color: #ffa69e;
+    background-color: var(--light-red);
+    border-color: var(--light-red);
 }
 .btn-danger:focus,
 .btn-danger.focus {
@@ -4542,7 +4542,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #cccccc;
 }
 .navbar-inverse {
-    background-color: #5e6472;
+    background-color: var(--lighter-green);
     border-color: transparent;
 }
 .navbar-inverse .navbar-brand {
@@ -4974,6 +4974,7 @@ a.thumbnail.active {
 .thumbnail .caption {
   padding: 9px;
   color: #2c3e50;
+  word-break: break-all;
 }
 .alert {
   padding: 15px;

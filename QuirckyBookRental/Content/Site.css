@@ -1,4 +1,22 @@
-﻿body {
+﻿:root {
+    --white: #ffffff;
+    --light-blue: #20A4F7;
+    --dark-blue: #042940;
+    --dark-green: #005C53;
+    --light-green: #1FC4AB;
+    --lighter-green: #03A688;
+    --yellow: #DBF227;
+    --light-brown: #D6D58E;
+    --pink: #F2668B;
+    --purple: #38184C;
+    --dark-red: #591C21;
+    --light-red: #F73939;
+    --facebook: #4267b2;
+    --google: #DE4032;
+}
+
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -29,7 +47,7 @@ textarea {
     bottom: 0;
     width: 100%;
     height: 60px;
-    background-color: #313F5E;
+    background-color: var(--dark-blue);
     color: #fff;
 }
 
@@ -42,3 +60,8 @@ html {
     position: relative;
     min-height: 100%;
 }
+
+.caption {
+    word-break: break-all;
+}
+
